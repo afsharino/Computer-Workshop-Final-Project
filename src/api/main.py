@@ -4,7 +4,7 @@ import os
 import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI
-from sqlalchemy import DBSessionMiddleware, db
+from fastapi_sqlalchemy import DBSessionMiddleware, db
 
 from src.db.models import Author
 from src.db.models import Author as ModelAuthor
@@ -13,7 +13,11 @@ from src.db.models import Book as ModelBook
 from src.db.schema import Author as SchemaAuthor
 from src.db.schema import Book as SchemaBook
 
+load_dotenv(".env")
+
 app = FastAPI()
+
+app.add_middleware(DBSessionMiddleware, db_url=os.environ["DATABASE_URL"])
 
 @app.get('/')
 async def root():
