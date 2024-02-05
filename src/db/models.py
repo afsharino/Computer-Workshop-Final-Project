@@ -6,8 +6,8 @@ from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
 
 Base = declarative_base()
 
-
 class Book(Base):
+    """Book model."""
     __tablename__ = "book"
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
@@ -18,8 +18,8 @@ class Book(Base):
 
     author = relationship("Author")
 
-
 class Author(Base):
+    """Author model."""
     __tablename__ = "author"
     id = Column(Integer, primary_key=True)
     name = Column(String)
