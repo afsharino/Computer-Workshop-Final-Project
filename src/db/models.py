@@ -7,7 +7,22 @@ from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
 Base = declarative_base()
 
 class Book(Base):
-    """Book model."""
+    """
+    SQLAlchemy model representing a book.
+
+    Attributes:
+        id (int): Primary key and unique identifier for the book.
+        title (str): The title of the book.
+        rating (int): The rating of the book.
+        time_created (DateTime): The timestamp when the book record was created.
+        time_updated (DateTime): The timestamp when the book record was last updated.
+        author_id (int): Foreign key referencing the ID of the associated author.
+
+    Relationships:
+        author (relationship): Many-to-one relationship with the Author model.
+
+    """
+
     __tablename__ = "book"
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
@@ -18,8 +33,20 @@ class Book(Base):
 
     author = relationship("Author")
 
+
 class Author(Base):
-    """Author model."""
+    """
+    SQLAlchemy model representing an author.
+
+    Attributes:
+        id (int): Primary key and unique identifier for the author.
+        name (str): The name of the author.
+        age (int): The age of the author.
+        time_created (DateTime): The timestamp when the author record was created.
+        time_updated (DateTime): The timestamp when the author record was last updated.
+
+    """
+
     __tablename__ = "author"
     id = Column(Integer, primary_key=True)
     name = Column(String)

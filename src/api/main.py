@@ -21,7 +21,8 @@ app.add_middleware(DBSessionMiddleware, db_url=os.environ["DATABASE_URL"])
 
 @app.get('/')
 async def root():
-    """Root endpoint.
+    """
+    Root endpoint.
 
     Returns:
         dict: A dictionary containing a welcome message.
@@ -30,7 +31,8 @@ async def root():
 
 @app.post("/add-book/", response_model=SchemaBook)
 def add_book(book: SchemaBook):
-    """Endpoint to add a book.
+    """
+    Endpoint to add a book.
 
     Args:
         book (SchemaBook): The book information.
@@ -45,7 +47,8 @@ def add_book(book: SchemaBook):
 
 @app.post("/add-author/", response_model=SchemaAuthor)
 def add_author(author: SchemaAuthor):
-    """Endpoint to add an author.
+    """
+    Endpoint to add an author.
 
     Args:
         author (SchemaAuthor): The author information.
@@ -60,7 +63,8 @@ def add_author(author: SchemaAuthor):
 
 @app.get("/books/")
 def get_books():
-    """Endpoint to get all books.
+    """
+    Endpoint to get all books.
 
     Returns:
         list: A list of books.
