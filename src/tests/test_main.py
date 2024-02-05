@@ -128,4 +128,3 @@ def test_add_book(db):
         json={"title": "Test Book", "rating": "invalid_rating", "author_id": author_id},
     )
     assert response_book.status_code == 422  # Expecting a validation error
-

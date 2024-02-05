@@ -17,6 +17,7 @@ class Book(Base):
         time_created (DateTime): The timestamp when the book record was created.
         time_updated (DateTime): The timestamp when the book record was last updated.
         author_id (int): Foreign key referencing the ID of the associated author.
+        :noindex:
 
     Relationships:
         author (relationship): Many-to-one relationship with the Author model.
@@ -44,6 +45,7 @@ class Author(Base):
         age (int): The age of the author.
         time_created (DateTime): The timestamp when the author record was created.
         time_updated (DateTime): The timestamp when the author record was last updated.
+        :noindex:
 
     """
 

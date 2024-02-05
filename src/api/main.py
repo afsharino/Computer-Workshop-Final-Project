@@ -6,9 +6,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi_sqlalchemy import DBSessionMiddleware, db
 
-from src.db.models import Author
 from src.db.models import Author as ModelAuthor
-from src.db.models import Book
 from src.db.models import Book as ModelBook
 from src.db.schema import Author as SchemaAuthor
 from src.db.schema import Book as SchemaBook
@@ -26,6 +24,7 @@ async def root():
 
     Returns:
         dict: A dictionary containing a welcome message.
+    :noindex:
     """
     return {'message' : 'HI Welcome to RestAPI'}
 
@@ -69,5 +68,5 @@ def get_books():
     Returns:
         list: A list of books.
     """
-    books = db.session.query(Book).all()
+    books = db.session.query(ModelBook).all()
     return books

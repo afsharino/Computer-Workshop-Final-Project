@@ -11,7 +11,7 @@ class Book(BaseModel):
 
     Config:
         orm_mode (bool): Enables ORM mode for SQLAlchemy integration.
-
+    :noindex:
     """
 
     title: str
@@ -33,7 +33,7 @@ class Author(BaseModel):
 
     Config:
         orm_mode (bool): Enables ORM mode for SQLAlchemy integration.
-
+    :noindex:
     """
 
     name: str
